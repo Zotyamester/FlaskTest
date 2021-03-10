@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+    <h1>User: <span id="username">{{ user.username }}</span></h1>
+    <hr>
+    {% include '_user.html' %}
+    <hr>
+    {% include '_posts.html' %}
+{% endblock %}

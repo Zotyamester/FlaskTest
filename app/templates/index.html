@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1 id="greeting">Hi{{ (', ' + current_user.username) if current_user.is_authenticated else '' }}!</h1>
+    {% if form %}
+    <hr>
+    {{ wtf.quick_form(form) }}
+    {% endif %}
+    <hr>
+    {% include '_posts.html' %}
+{% endblock %}

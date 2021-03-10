@@ -1,0 +1,4 @@
+    <div class="post">
+        <h1><span class="user_popup"><a href="{{ url_for('main.user', username=message.author.username) }}">{{ message.author.username }}</a></span></h1>
+        <p>{{ message.body }}</p>
+    </div>
