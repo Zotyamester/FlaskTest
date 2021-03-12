@@ -52,7 +52,7 @@
                                 function(data) {
                                     xhr = null;
                                     elem.popover({
-                                        trigger: 'manaul',
+                                        trigger: 'manual',
                                         html: true,
                                         animation: false,
                                         container: elem,
@@ -81,7 +81,7 @@
         {% if current_user.is_authenticated %}
         function set_message_count(n) {
             $('#message_count').text(n);
-            $('#message_count').css('visibility', n ? 'visible' : 'hidden')
+            $('#message_count').css('visibility', n ? 'visible' : 'hidden');
         }
 
         $(function() {
@@ -90,8 +90,9 @@
                 $.ajax("{{ url_for('main.notifications') }}?since=" + since).done(
                     function(notifications) {
                         for (var i = 0; i < notifications.length; i++) {
-                            if (notifications[i].name == 'unread_message_count')
+                            if (notifications[i].name == 'unread_message_count') {
                                 set_message_count(notifications[i].data);
+                            }
                             since = notifications[i].timestamp;
                         }
                     }
