@@ -20,7 +20,7 @@ def posts(page):
     username = request.args.get('username', '', type=str)
     base = Post.query
     if username != '':
-        user = User.query.filter_by(username=username).first_or_404().posts
+        base = User.query.filter_by(username=username).first_or_404().posts
     posts = base.order_by(Post.timestamp.desc()).paginate(page, current_app.config['POSTS_PER_PAGE'], False)
     return jsonify({
         'posts': [
