@@ -11,9 +11,8 @@
     <script>
         function load_posts() {
             var newVal = (parseInt($('#page').val()) + 1).toString();
-            var username = $('#username').text();
             xhr = $.ajax(
-                '/posts/' + newVal + ((username != '') ? ('?username=' + username) : '')).done(
+                `${window.location.pathname}/posts?page=${newVal}`).done(
                         function(data) {
                             xhr = null;
                             posts = data['posts'];
